@@ -1,0 +1,411 @@
+/*
+Theme Name:         Villa
+Description:        Villa is html 5 theme to display your villa.
+Version:            1.0.0
+Author:             Regis Bruggheman
+Author URI:         http://joufdesign.com
+
+*/
+
+/* THEME VARIABLES
+-------------------------------------------------- */
+
+/* IMPORTS
+-------------------------------------------------- */
+@import "variables";
+@import "twitter/bootstrap/3.0.0.rc2/bootstrap";
+@import "font-awesome";
+@import "footer";
+ 
+/* FIX FOR IE DEVICE_WIDTH BUG
+-------------------------------------------------- */
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+/* FIX FOR GMAP BUG
+-------------------------------------------------- */
+#map-canvas {
+  height: 400px;
+  img {
+    max-width: none;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+  }
+}
+
+/* GLOBAL STYLE
+-------------------------------------------------- */
+// We do not want focus
+// -------------------------
+a:focus,
+.btn:focus {
+  outline: 0;
+}
+::selection {
+	background-color: $brand-primary;
+	color: #fff;
+}
+a {
+  @include transition(all 0.3s ease-in-out);
+}
+/* STICKY FOOTER STYLES
+-------------------------------------------------- */
+
+#back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  z-index: 99;
+  display: none;
+  margin: 0;
+  width: 50px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #505050;
+  color: #fff;
+  @include transition(all 0.4s ease-in-out);
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: $brand-primary;
+  }
+}
+
+/* LAYOUT
+-------------------------------------------------- */
+
+/* TYPES
+-------------------------------------------------- */
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $brand-primary;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 0;
+  max-width: none;
+  background-color: #505050;
+  overflow: hidden;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  background-color: #505050;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+}
+
+// Toggles
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width:  90px;
+  height: 90px;
+  margin-top: -45px;
+  margin-left: -45px;
+  font-size: 90px;
+}
+// Scale up controls for tablets and up
+@media screen and (min-width: $screen-tablet) {
+
+  // Scale up the controls a smidge
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width:  90px;
+    height: 90px;
+    margin-top: -45px;
+    margin-left: -45px;
+    font-size: 90px;
+  }
+} 
+@media (min-width: $grid-float-breakpoint) {
+  /* Bump up heights of carousel item */
+  .carousel .item {
+    height: 700px;
+  }
+
+  /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 20px;
+      font-size: 21px;
+      line-height: 1.4;
+    }
+  .carousel-control .icon-prev {
+    margin-left: -120px;
+  }
+  .carousel-control .icon-next {
+    margin-left: 30px;
+  }
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */ 
+body { padding-top: $navbar-height; }
+.navbar {
+
+  &.navbar-default {
+    border-bottom-color: #ccc;
+  }
+}
+.navbar-brand {
+  font-size: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+} 
+.navbar-nav {
+  
+  > li > a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: $font-size-base - 3;
+    font-weight: 700;
+  }
+
+  .dropdown {
+     > a .caret {
+       display:none; 
+     }
+    .dropdown-menu {
+      display: block;
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      > li > a,
+       .dropdown-header {
+         padding: 5px 15px 5px 25px;
+       }
+       > li > a {
+         line-height: $line-height-computed;
+         &:hover,
+         &:focus {
+           background-image: none;
+         }
+       }
+     } 
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    @include pull-right;
+    .dropdown {
+      > a .caret {
+         display: inline-block; 
+      }
+      .dropdown-menu {
+        position: absolute;
+        display: none;
+        float: left;
+        background-color: $dropdown-bg;
+        border: 1px solid $dropdown-fallback-border; // IE8 fallback
+        border: 1px solid $dropdown-border;
+        border-radius: $border-radius-base;
+        @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+      }
+      &:hover {
+        .dropdown-menu {
+          display: block; 
+        }
+      } 
+    }
+  }
+}
+
+#locales-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  .nav > li > a { 
+    background-color: $brand-primary;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: $font-size-base - 5;
+    padding: 4px 8px;
+    &:hover,
+    &:focus {
+      background-color: lighten($brand-primary, 10%); 
+      color: white;
+    }
+  }
+}
+
+/* CUSTOMIZE ARTICLES
+-------------------------------------------------- */ 
+
+.section {
+  padding-top: $line-height-computed * 3;
+  padding-bottom: $line-height-computed * 3; 
+  text-align: left;
+  background-color: $body-bg;
+  hr {
+    margin-top: 0; 
+    padding-top: 0;
+    border-top-color: $brand-primary;
+  }
+  strong {
+    color: #000;
+  }
+  h2 {
+    margin-bottom: 0;
+    padding-bottom: $line-height-computed;
+    border-bottom: 4px solid $brand-primary;
+    display: inline-block;
+  }
+} 
+
+.section:nth-child(2n+1) {
+  background-color: #fff;
+}
+.section.contact { 
+  background-color: #2d2d2d;
+  color: $gray-light;
+  .page-title {
+    color: #fff;
+  }
+} 
+
+.copy-text {
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 400;
+  //max-width: 700px;
+  //@include center-block();
+  table {
+    @extend .table;
+    text-align: left;
+  }
+}
+
+.page-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding-bottom: 15px;
+  color: #2d2d2d;
+  letter-spacing: 2px;
+  text-align: left; 
+  max-width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+
+.post-title {
+  text-transform: uppercase;
+  font-size: 11px;
+  margin: 0;
+  padding: $line-height-computed 8px;
+  //color: #eee;
+  letter-spacing: 2px; 
+  text-align: center;
+  @include text-overflow();
+}  
+.post-image {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.post-item:hover {
+  background-color: $brand-primary;
+  .post-image {
+    @include opacity(.9);
+  }
+  .post-title {
+    color: #fff;
+  }
+}
+
+/* MODAL STYLES
+-------------------------------------------------- */
+.modal-header {
+  border-bottom-color: #2d2d2d;
+  color: $gray-light;
+  .close {
+    color: $gray-light; 
+  } 
+}
+
+/* CONTACT STYLES
+-------------------------------------------------- */ 
+#contact_us { 
+  padding-top: $line-height-computed * 3;
+  padding-bottom: $line-height-computed * 3;
+  
+  form {
+    margin-top: 2em;
+  }
+}
+
+.form-control {
+  @include box-shadow(none); 
+  @include transition(all 0.4s ease-in-out); 
+  &:focus {
+    border-color: none;
+    outline: 0;
+    @include box-shadow(none);
+    background: #e6e6e6;
+  } 
+}
+input {
+  color:#1a1a1a;
+  font-weight: normal;
+}
+input[type="text"] { 
+  margin-bottom: 15px;height:40px;
+}
+textarea.form-control {
+  height:120px; 
+  resize: none;
+}
+
+#contact_us .btn {
+  width:100%;
+  margin-top:1em; 
+  border-radius:0; 
+  border:none; 
+  background-color: $brand-primary; 
+  color: white;
+  text-transform: uppercase;
+  @include transition(all 0.4s ease-in-out);
+  &:hover {
+    background-color: lighten($brand-primary, 10%); 
+    color: white;
+  }
+}
+.formContainer{position: relative;}
+
+
+span.error,span.valid{position: absolute;top:0; right: 1em;}
+span.error, span.valid{ width:40px;height:40px; background-position:center center;background-size:20px; background-repeat: no-repeat;}
+span.error{background-image:image_path("notifications/error.svg");}
+span.valid{background-image:image_path("notifications/valid.svg");}
+
+.alert{display:none;border: 0; border-radius: 0; background-color:#ff3333; color: white;}
+.alert-success{background-color:#22b573; color: white;}
+
+
