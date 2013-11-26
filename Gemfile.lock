@@ -1,17 +1,18 @@
 GIT
   remote: git@github.com:jdfdesign/gko_cms3.git
-  revision: 69f7e4b7ecbb1de26e6cd4204499014426172973
-  tag: v0.8.09.rc2
+  revision: 91f47173c3f95e6d7b14c9fc75d4a6cde03c581d
+  tag: v0.8.09.rc5
   specs:
-    gko_auth (0.8.09.rc2)
+    gko_auth (0.8.09.rc5)
       cancan (~> 1.6.10)
       devise (~> 2.2.3)
-    gko_core (0.8.09.rc2)
+    gko_core (0.8.09.rc5)
       RedCloth (= 4.2.9)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
       babosa (~> 0.3.8)
       capistrano (~> 2.14)
+      carrierwave
       codemirror-rails (>= 2.3)
       coffee-rails (~> 3.2.2)
       country_select (~> 1.2.0)
@@ -38,6 +39,7 @@ GIT
       rack-mount (~> 0.8.3)
       rails (= 3.2.14.rc2)
       rake (~> 10.0.4)
+      rmagick (~> 2.13.2)
       routing-filter (= 0.3.1)
       rubyzip (= 0.9.6.1)
       sass-rails (~> 3.2.6)
@@ -48,10 +50,10 @@ GIT
       uglifier (>= 1.0.3)
       uuid (= 2.3.5)
       will_paginate (~> 3.0.2)
-    gko_documents (0.8.09.rc2)
+    gko_documents (0.8.09.rc5)
       dragonfly (~> 0.9.8)
       rack-cache (>= 0.5.3)
-    gko_inquiries (0.8.09.rc2)
+    gko_inquiries (0.8.09.rc5)
       filters_spam (~> 0.2)
 
 GEM
@@ -99,6 +101,10 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     codemirror-rails (3.16)
       railties (>= 3.0, < 5)
     coffee-rails (3.2.2)
@@ -222,6 +228,7 @@ GEM
     ref (1.0.5)
     responders (0.9.3)
       railties (~> 3.1)
+    rmagick (2.13.2)
     routing-filter (0.3.1)
       actionpack
     ruby-ole (1.2.11.7)
