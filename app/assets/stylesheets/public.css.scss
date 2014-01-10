@@ -14,8 +14,8 @@ $th-footer-height: 60px;
 /* IMPORTS
 -------------------------------------------------- */
 @import "variables";
-@import "twitter/bootstrap/3.0.0.rc2/bootstrap";
-@import "font-awesome";
+@import "bootstrap.3.0.2/bootstrap"; 
+//@import "font-awesome-4.0.3/font-awesome"; 
 
 /* FIX FOR IE DEVICE_WIDTH BUG
 -------------------------------------------------- */
@@ -82,7 +82,7 @@ footer {
 /* LAYOUT
 -------------------------------------------------- */
 body {
-  background-image: asset-url("retina_wood.png", "image");
+  background-image: asset-url("subtle_grunge/subtle_grunge_blue.png", "image");
   background-position: 0 0;
   background-repeat: repeat repeat;
 }
@@ -307,6 +307,9 @@ footer .nav {
   padding-top: $line-height-computed * 3;
   padding-bottom: $line-height-computed * 3;
   
+  h1 {
+    color: #fff;
+  }
   form {
     margin-top: 2em;
   }
